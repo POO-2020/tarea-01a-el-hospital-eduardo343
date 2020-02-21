@@ -23,24 +23,24 @@ class Main {
     }
 
     pruebaNombre(){
-        let nombre = new Nombre("Ana", "Landín", "López");
+        let nombre = new Nombre("bastian", "natael", "corona");
         console.log(nombre.getNombreCompleto());
         console.log(nombre.getApellidoNombre());
         console.log(nombre.getIniciales());
     }
 
     pruebaPaciente(){
-        let paciente = new Paciente(new Nombre("Ana", "Landín", "López"), new Fecha(15,5,2001), 3123045861);
+        let paciente = new Paciente(new Nombre("bastian", "natael", "corona"), new Fecha(31,3,2001), 3121154897);
         console.log(paciente.getPerfil());
     }
 
     pruebaDoctor(){
-        let doctor = new Doctor("ETF59", "Cardiólogo", new Nombre("Manuel", "Ávila", "Camacho"), 3135620);
+        let doctor = new Doctor("ETF59", "proctologo", new Nombre("luis","solis ", "gonzales"), 3121456978);
         console.log(doctor.getPerfil());
     }
 
     pruebaCita(){
-        let cita = new Cita(new Fecha(20,2,2020), new Tiempo(6,30,"pm"), new Doctor("ETF59", "Cardiólogo", new Nombre("Manuel", "Ávila", "Camacho"), 3135620), new Paciente(new Nombre("Ana", "Landín", "López"), new Fecha(15,5,2001), 3123045861));
+        let cita = new Cita(new Fecha(20,2,2020), new Tiempo(6,30,"pm"), new Doctor("ETF59", "Cardiólogo", new Nombre("luis", "solis", "gonzales"), 3135620), new Paciente(new Nombre("bastian", "natael", "corona"), new Fecha(31,3,2001),  3121154897));
     console.log(cita.getCita());
     }
 } 
