@@ -4,8 +4,12 @@ import Nombre from "./nombre.js";
 import Paciente from "./paciente.js"
 import Doctor from "./doctor.js"
 import Cita from "./cita.js"
+import Hospital from "./hospital.js"
 
 class Main {
+    constructor(){
+        this.hospital = new Hospital("Colima", "Felipe Cebolla #15");
+    }
     pruebaFecha () {
         let fecha = new Fecha(15,2,2021);
         console.log(fecha.getAños());
@@ -23,26 +27,47 @@ class Main {
     }
 
     pruebaNombre(){
-        let nombre = new Nombre("bastian", "natael", "corona");
+        let nombre = new Nombre("bastian", "natael", "López");
         console.log(nombre.getNombreCompleto());
         console.log(nombre.getApellidoNombre());
         console.log(nombre.getIniciales());
     }
 
     pruebaPaciente(){
-        let paciente = new Paciente(new Nombre("bastian", "natael", "corona"), new Fecha(31,3,2001), 3121154897);
+        let paciente = new Paciente(new Nombre("bastian", "natael", "López"), new Fecha(31,3,2001), 3121154717);
         console.log(paciente.getPerfil());
     }
 
     pruebaDoctor(){
-        let doctor = new Doctor("ETF59", "proctologo", new Nombre("luis","solis ", "gonzales"), 3121456978);
+        let doctor = new Doctor("ETF59", "Cardiólogo", new Nombre("el wicho", "solis", "gonzales"), 3135620);
         console.log(doctor.getPerfil());
     }
 
     pruebaCita(){
-        let cita = new Cita(new Fecha(20,2,2020), new Tiempo(6,30,"pm"), new Doctor("ETF59", "Cardiólogo", new Nombre("luis", "solis", "gonzales"), 3135620), new Paciente(new Nombre("bastian", "natael", "corona"), new Fecha(31,3,2001),  3121154897));
+        let cita = new Cita(new Fecha(20,2,2020), new Tiempo(6,30,"pm"), new Doctor("ETF59", "Cardiólogo", new Nombre("el wicho", "solis", "gonzales"), 31215469), new Paciente(new Nombre("el ferras", "hernandez", "López"), new Fecha(15,5,2001), 3123045861));
     console.log(cita.getCita());
     }
+
+    pruebaHospital(){
+        let doctor1 = new Doctor("ER34", "Dermatólogo", new Nombre("Carlos", "Ochoa","Alcaraz"), 2765326);
+        let doctor2 = new Doctor("ER34", "Dermatólogo", new Nombre("Carlos", "Ochoa","Alcaraz"), 2765326);
+        let doctor3 = new Doctor("ER34", "Dermatólogo", new Nombre("Carlos", "Ochoa","Alcaraz"), 2765326);
+        let doctor4 = new Doctor("ER34", "Dermatólogo", new Nombre("Carlos", "Ochoa","Alcaraz"), 2765326);
+
+        this.hospital.registrarDoctor(doctor1);
+        this.hospital.registrarDoctor(doctor2);
+        this.hospital.registrarDoctor(doctor3);
+        this.hospital.registrarDoctor(doctor4);
+        this.hospital.listarDoctores();
+        }
+    
+        pruebaCitas(){
+            let cita1 = new Cita(new Fecha(24,2,2020), new Tiempo(5,30,"pm"), new Doctor("ER34", "Dermatólogo", new Nombre("Carlos", "Ochoa","Alcaraz"), 2765326), new Paciente(new Nombre("el juan","perez"), new Fecha(15,5,1995),2894563));
+            let cita2 = new Cita(new Fecha(24,2,2020), new Tiempo(5,30,"pm"), new Doctor("ER34", "Dermatólogo", new Nombre("Carlos", "Ochoa","Alcaraz"), 2765326), new Paciente(new Nombre("carlitos","perez","Lopez"), new Fecha(15,5,1995),2894563));
+            this.hospital.registrarCita(cita1);
+            this.hospital.registrarCita(cita2);
+            this.hospital.listarCitas();
+        }
 } 
 
     let app = new Main();
@@ -52,4 +77,6 @@ class Main {
     app.pruebaNombre();
     app.pruebaPaciente();
     app.pruebaDoctor();
+    app.pruebaHospital();
     app.pruebaCita();
+    app.pruebaCitas();
